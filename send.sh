@@ -75,7 +75,7 @@ WEBHOOK_DATA='{
   "embeds": [ {
     "color": '$EMBED_COLOR',
     "author": {
-      "name": "'"$STATUS_MESSAGE"': '"$WORKFLOW_NAME"',
+      "name": "'"$STATUS_MESSAGE"': '"$WORKFLOW_NAME"'",
       "url": "'$ACTION_URL'",
       "icon_url": "'$AVATAR'"
     },
