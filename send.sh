@@ -10,7 +10,7 @@ fi
 
 echo -e "[Webhook]: Sending webhook to Discord...\\n";
 
-AVATAR="https://github.com/actions.png"
+AVATAR="https://i.ibb.co/xHK0zzD/image0.jpg"
 
 case $1 in
   "Success" )
@@ -44,9 +44,9 @@ BRANCH_OR_PR_URL="$REPO_URL/tree/$BRANCH_NAME"
 ACTION_URL="$COMMIT_URL/checks"
 COMMIT_OR_PR_URL=$COMMIT_URL
 if [ "$AUTHOR_NAME" == "$COMMITTER_NAME" ]; then
-  CREDITS="$AUTHOR_NAME authored & committed"
+  CREDITS="authored by $AUTHOR_NAME"
 else
-  CREDITS="$AUTHOR_NAME authored & $COMMITTER_NAME committed"
+  CREDITS="authored by $AUTHOR_NAME"
 fi
 
 if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
@@ -75,7 +75,7 @@ WEBHOOK_DATA='{
   "embeds": [ {
     "color": '$EMBED_COLOR',
     "author": {
-      "name": "'"$STATUS_MESSAGE"': '"$WORKFLOW_NAME"' ('"${HOOK_OS_NAME}"') - '"$GITHUB_REPOSITORY"'",
+      "name": "'"$STATUS_MESSAGE"': '"$WORKFLOW_NAME"',
       "url": "'$ACTION_URL'",
       "icon_url": "'$AVATAR'"
     },
