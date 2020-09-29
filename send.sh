@@ -10,24 +10,25 @@ fi
 
 echo -e "[Webhook]: Sending webhook to Discord...\\n";
 
-AVATAR="https://i.ibb.co/xHK0zzD/image0.jpg"
+AVATAR="https://koalalauncher.netlify.app/assets/images/icon.ico"
 
-case $1 in
-  "Success" )
+case ${1,,} in
+  "success" )
     EMBED_COLOR=3066993
     STATUS_MESSAGE="Passed"
     ;;
 
-  "Failure" )
+  "failure" )
     EMBED_COLOR=15158332
     STATUS_MESSAGE="Failed"
     ;;
 
   * )
-    STATUS_MESSAGE="Status Unknown"
+    STATUS_MESSAGE="Unknown"
     EMBED_COLOR=0
     ;;
 esac
+
 
 AUTHOR_NAME="$(git log -1 "$GITHUB_SHA" --pretty="%aN")"
 COMMITTER_NAME="$(git log -1 "$GITHUB_SHA" --pretty="%cN")"
@@ -69,13 +70,14 @@ if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
 fi
 
 TIMESTAMP=$(date -u +%FT%TZ)
+
 WEBHOOK_DATA='{
   "username": "",
   "avatar_url": "'$AVATAR'",
   "embeds": [ {
     "color": '$EMBED_COLOR',
     "author": {
-      "name": "'"$STATUS_MESSAGE"': '"$WORKFLOW_NAME"' ('"${HOOK_OS_NAME}"') - '"$GITHUB_REPOSITORY"'",	
+      "name": "'"$STATUS_MESSAGE"': '"${HOOK_OS_NAME}"'",
       "url": "'$ACTION_URL'",
       "icon_url": "'$AVATAR'"
     },
