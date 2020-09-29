@@ -77,7 +77,7 @@ WEBHOOK_DATA='{
   "embeds": [ {
     "color": '$EMBED_COLOR',
     "author": {
-      "name": "'"$STATUS_MESSAGE"': '"$WORKFLOW_NAME"' ('"${HOOK_OS_NAME}"') - '"$GITHUB_REPOSITORY"'",
+      "name": "'"$STATUS_MESSAGE"': '"${HOOK_OS_NAME}"'",
       "url": "'$ACTION_URL'",
       "icon_url": "'$AVATAR'"
     },
