@@ -10,7 +10,7 @@ fi
 
 echo -e "[Webhook]: Sending webhook to Discord...\\n";
 
-AVATAR="https://koalalauncher.netlify.app/assets/images/icon.ico"
+AVATAR="https://raw.githubusercontent.com/KoalaDevs/KoalaLauncher/master/public/icon.png"
 
 case ${1,,} in
   "success" )
