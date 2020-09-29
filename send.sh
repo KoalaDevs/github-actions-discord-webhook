@@ -70,13 +70,14 @@ if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
 fi
 
 TIMESTAMP=$(date -u +%FT%TZ)
+
 WEBHOOK_DATA='{
   "username": "",
   "avatar_url": "'$AVATAR'",
   "embeds": [ {
     "color": '$EMBED_COLOR',
     "author": {
-      "name": "'"$STATUS_MESSAGE"' - '"$HOOK_OS_NAME"',	
+      "name": "'"$STATUS_MESSAGE"': '"$WORKFLOW_NAME"' ('"${HOOK_OS_NAME}"') - '"$GITHUB_REPOSITORY"'",
       "url": "'$ACTION_URL'",
       "icon_url": "'$AVATAR'"
     },
